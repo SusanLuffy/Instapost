@@ -48,3 +48,4 @@ end
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem "carrierwave"
+gem "simple_form"
