@@ -25,6 +25,11 @@ def update
     render :edit, status: :unprocessable_entity
   end
 end
+def destroy
+  @post = Post.find(params[:id])
+  @post.destroy
+  redirect_to root_path
+end
 private
 
 def is_owner?
