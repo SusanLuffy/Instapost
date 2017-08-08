@@ -10,6 +10,9 @@ def create
     render :new, status: :unprocessable_entity
   end
 end
+def index
+  @posts = Post.all.order('created_at DESC')
+end
 before_action :authenticate_user!, only: [:new, :create]
 private
 
