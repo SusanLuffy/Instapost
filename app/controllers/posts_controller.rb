@@ -10,6 +10,9 @@ def create
     render :new, status: :unprocessable_entity
   end
 end
+def show
+  @post = Post.find(params[:id])
+end
 def index
   @posts = Post.all.order('created_at DESC')
 end
@@ -38,7 +41,7 @@ def is_owner?
   end
 end
 before_action :authenticate_user!, only: [:new, :create]
-before_action :is_owner?, only: [:edit, :update]
+before_action :is_owner?, only: [:edit, :update, :delete]
 private
 
 def post_params
