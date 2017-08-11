@@ -33,6 +33,7 @@ def destroy
   @post.destroy
   redirect_to root_path
 end
+
 private
 
 def is_owner?
@@ -42,7 +43,6 @@ def is_owner?
 end
 before_action :authenticate_user!, only: [:new, :create]
 before_action :is_owner?, only: [:edit, :update, :delete]
-private
 
 def post_params
   params.require(:post).permit(:user_id, :photo, :description)

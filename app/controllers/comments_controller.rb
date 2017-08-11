@@ -11,7 +11,22 @@ def create
   end
 end
 
+def destroy
+  @comment = Comment.find(params[:id])
+  @comment.destroy
+  redirect_to root_path
+end
+
+before_action :is_owner?, only: :destroy
+
 private 
+
+def is_owner?
+  @comment = Comment.find(params[:id])
+  if @comment.user != current_user
+    redirect_to root_path
+  end
+end
 
 def comment_params
   params.require(:comment).permit(:text, :post_id)
