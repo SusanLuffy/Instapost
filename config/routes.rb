@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   root 'posts#index'
   resources :posts do
   resources :comments
-  resources :users, only: :show
   end
+  resources :users, only: :show
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  # root   #'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   #       get 'short'
   #       post 'toggle'
   #     end
-  #
+
   #     collection do
   #       get 'sold'
   #     end
