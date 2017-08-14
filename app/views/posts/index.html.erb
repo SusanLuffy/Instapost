@@ -25,9 +25,12 @@
 <!--  <% end %>-->
 <!--<% end %>-->
 
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
 <% @posts.each do |post| %>
-  
-  <div class="post_box">
+    <div class="post_box">
 
     <div class="post_header">
       <%= image_tag post.user.photo, class: 'prof_pic_small' %>
@@ -64,3 +67,6 @@
   </div>
 
 <% end %>
+</div>
+</div>
+</div>
