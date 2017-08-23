@@ -51,6 +51,7 @@
       <% post.comments.each do |comment| %>
 
         <%= link_to comment.user.name,  user_path(comment.user_id) %> <%= comment.text %>
+        <br>
 
       <% end %>
 
@@ -73,6 +74,7 @@
        </span>
        <% end %>
       
+      <%= render partial: 'likes', locals: {post: post} %>
       <% if user_signed_in? %>
         <%= simple_form_for Comment.new, url: post_comments_path(post), method: :post do |f| %>
           <%= f.input :text, label: 'Comment', placeholder: 'Add a comment...' %>

@@ -14,7 +14,7 @@ def show
   @post = Post.find(params[:id])
 end
 def index
-  @posts = Post.all.order('created_at DESC')
+  @posts = Post.all.order('created_at DESC').includes(:user, comments: :user)
 end
 def edit
   @post = Post.find(params[:id])
